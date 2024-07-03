@@ -1,7 +1,3 @@
-FROM php:8.2-cli
+FROM httpd:2.4
 
-WORKDIR /usr/src/myapp
-
-COPY ./API .
-
-CMD [ "php", "./index.php" ]
+COPY ./API /usr/local/apache2/htdocs/
