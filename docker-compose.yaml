@@ -33,8 +33,6 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    networks:
-      - default
 
   api:
     container_name: api
@@ -50,8 +48,6 @@ services:
       - mysql_password
     ports:
       - "8000:80"
-    networks:
-      - default
     restart: on-failure:5
     depends_on:
       mysql:
@@ -73,8 +69,6 @@ services:
     image: front
     ports:
       - "80:80"
-    networks:
-      - default
     depends_on:
       - api
     scale: 1
@@ -87,6 +81,3 @@ secrets:
 
 volumes:
   mysql_data:
-
-networks:
-  default:
