@@ -10,7 +10,7 @@ $id = $_GET['id'];
 $type = $_GET['type'];
 
 try {
-    $client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+    $client = new Client(['base_uri' => 'localhost:8000']);
     if ($type == 'housing') {
         $response = $client->get('/getHousingAdsInfo/' . $id);
     } else {
@@ -40,7 +40,7 @@ if (isset($_POST['new_disponibility']) && !empty($_POST['new_disponibility'])) {
         }
         }
         try {
-            $client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+            $client = new Client(['base_uri' => 'localhost:8000']);
             $test = [
                 'id' => $id,
                 'type' => $type,
@@ -67,7 +67,7 @@ if (isset($_POST['new_disponibility']) && !empty($_POST['new_disponibility'])) {
 }
 
 // Récupérer les disponibilités
-$client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+$client = new Client(['base_uri' => 'localhost:8000']);
 if ($type == 'housing') {
     $response = $client->get('/housingDisponibility/' . $id);
 } else {
@@ -98,7 +98,7 @@ displayMessage('danger', 'likeError');
 // Récupérer la note moyenne
 try {
     $client = new Client();
-    $response = $client->post('https://pcs-all.online:8000/getAverageRate', [
+    $response = $client->post('localhost:8000/getAverageRate', [
         'json' => ['id' => $id, 'type' => $type]
     ]);
     $averageRate = json_decode($response->getBody()->getContents(), true)['average'];
@@ -110,7 +110,7 @@ try {
 // Récupérer les commentaires
 try {
     $client = new Client();
-    $response = $client->post('https://pcs-all.online:8000/getComments', [
+    $response = $client->post('localhost:8000/getComments', [
         'json' => ['id' => $id, 'type' => $type]
     ]);
 
@@ -133,7 +133,7 @@ try {
                 <div class="carousel-inner">
                     <?php
                     try {
-                        $client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+                        $client = new Client(['base_uri' => 'localhost:8000']);
                         if ($type == 'housing') {
                             $response = $client->get('/housingAdsImages/' . $id);
                         } else {
@@ -199,7 +199,7 @@ try {
             </div>
             <hr>
             <?php
-            $client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+            $client = new Client(['base_uri' => 'localhost:8000']);
             $response = $client->get('/users/' . $content['id_user']);
             $body = json_decode($response->getBody()->getContents(), true);
             ?>
@@ -292,7 +292,7 @@ try {
             <div class="row">
                 <div class="col-md-6">
                     <?php if (isset($_SESSION['userId']) && $_SESSION['grade'] != 4 && $_SESSION['grade'] != 5) {
-                        $client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+                        $client = new Client(['base_uri' => 'localhost:8000']);
                         $response = $client->post('/isLiked', [
                             'json' => [
                                 'id' => $content['id'],

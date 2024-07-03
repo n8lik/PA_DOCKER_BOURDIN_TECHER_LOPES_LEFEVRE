@@ -80,7 +80,7 @@ if ($getType == "add") {
 
             $idPerf = insertPerformance($title, $description, $performance_type, $address_appointment, $city_appointment, $zip_appointment, $country_appointment, $price, $price_type, $userId, $fee, $place, $radius);
             
-            $client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+            $client = new Client(['base_uri' => 'localhost:8000']);
     
             $multipart = [
                 ['name' => 'userId', 'contents' => $userId],
@@ -94,7 +94,7 @@ if ($getType == "add") {
     
                 try {
                     // Envoyer la requête multipart
-                    $response = $client->post('https://pcs-all.online:8000/addAPerfFile', [
+                    $response = $client->post('localhost:8000/addAPerfFile', [
                         'multipart' => $multipart
                     ]);
     
@@ -178,7 +178,7 @@ if ($getType == "addFiles") {
     $filetype= $_POST['type'];
 
     if (isset($_POST['submit'])) {
-            $client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+            $client = new Client(['base_uri' => 'localhost:8000']);
 
             // Préparer les parties multipart pour les champs du formulaire
             $multipart = [
@@ -196,7 +196,7 @@ if ($getType == "addFiles") {
 
             try {
                 // Envoyer la requête multipart
-                $response = $client->post('https://pcs-all.online:8000/addAFile', [
+                $response = $client->post('localhost:8000/addAFile', [
                     'multipart' => $multipart
                 ]);
         

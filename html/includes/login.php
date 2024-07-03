@@ -8,16 +8,14 @@ use GuzzleHttp\Client;
 if (isset($_POST['loginsubmit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $captcha = $_POST['g-recaptcha-response'];
 
     try {
         $client = new Client([
-            'base_uri' => 'https://pcs-all.online:8000'
+            'base_uri' => 'localhost:8000'
         ]);
         $test = [
             'email' => $email,
-            'password' => $password,
-            'captcha' => $captcha
+            'password' => $password
 
         ];
 

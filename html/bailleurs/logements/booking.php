@@ -38,7 +38,7 @@ if (isset($_GET["id"])) {
         'adsType' => 'housing',
         'id' => $id
     ];
-    $response = $client->get('https://pcs-all.online:8000/getAllBookingByOwnerId/', [
+    $response = $client->get('localhost:8000/getAllBookingByOwnerId/', [
         'json' => $test
     ]);
     $booking = json_decode($response->getBody()->getContents(), true);

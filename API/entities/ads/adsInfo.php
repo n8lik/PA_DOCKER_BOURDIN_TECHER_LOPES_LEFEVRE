@@ -8,7 +8,7 @@ function getAdsImages($id, $type)
     foreach ($files as $file) {
         $parts= explode("_", $file);
         if ($parts[0] == $id) {
-            $images[] = "https://pcs-all.online:8000/externalFiles/ads/" . $type . "/" . $file;
+            $images[] = "localhost:8000/externalFiles/ads/" . $type . "/" . $file;
         }
     }
     return $images;

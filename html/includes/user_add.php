@@ -27,13 +27,12 @@ if (isset($_POST['submit'])) {
 
     try {
         $client = new Client([
-            'base_uri' => 'https://pcs-all.online:8000'
+            'base_uri' => 'localhost:8000'
         ]);
         $test = [
             'email' => $email,
             'password' => $password,
             'passwordConfirm' => $passwordConfirm,
-            'g-recaptcha-response' => $_POST['g-recaptcha-response'],
             'grade' => $grade,
             'username' => $pseudo,
             'firstname' => $firstname,

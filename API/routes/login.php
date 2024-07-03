@@ -13,17 +13,16 @@ $body = getBody();
 
 $email = $body["email"];
 $password = $body["password"];
-$captcha = $body["captcha"];
 
-$user = login($email, $password, $captcha);
+$user = login($email, $password);
 
-if (!$captcha) {
+/* if (!$captcha) {
     echo jsonResponse(200, [], [
         "success" => false,
         "error" => "Le captcha est invalide"
     ]);
     die();
-}
+} */
 
 if (!$user) {
     echo jsonResponse(200, [], [

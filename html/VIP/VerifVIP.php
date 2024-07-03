@@ -15,7 +15,7 @@ if (!isConnected()){
   use GuzzleHttp\Client;
 try {
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $response = $client->get('/users');
     $users = json_decode($response->getBody()->getContents(), true);

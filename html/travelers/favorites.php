@@ -19,7 +19,7 @@ if ($_SESSION["grade"] > 3) {
 $id = $_SESSION['userId'];
 try {
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $response = $client->get('/getLikes/' . $id);
     $likes = json_decode($response->getBody()->getContents(), true)['favorites'];
@@ -55,7 +55,7 @@ if (empty($likes)) {
             //Récupérer le logement
             try {
                 $client = new Client([
-                    'base_uri' => 'https://pcs-all.online:8000'
+                    'base_uri' => 'localhost:8000'
                 ]);
                 $response = $client->get('/getHousingAdsInfo/' . $like['id_housing']);
                 $content = json_decode($response->getBody()->getContents(), true)['adsInfo'];
@@ -66,7 +66,7 @@ if (empty($likes)) {
             //Récupérer l'image
             try {
                 $client = new Client([
-                    'base_uri' => 'https://pcs-all.online:8000'
+                    'base_uri' => 'localhost:8000'
                 ]);
                 $response = $client->get('/housingAdsImages/' . $like['id_housing']);
                 $content['image'] = json_decode($response->getBody()->getContents(), true)['images'][0];
@@ -80,7 +80,7 @@ if (empty($likes)) {
             //Récupérer la prestation
             try {
                 $client = new Client([
-                    'base_uri' => 'https://pcs-all.online:8000'
+                    'base_uri' => 'localhost:8000'
                 ]);
                 $response = $client->get('/getPerformanceAdsInfo/' . $like['id_performance']);
                 $content = json_decode($response->getBody()->getContents(), true)['adsInfo'];
@@ -92,7 +92,7 @@ if (empty($likes)) {
             //Récupérer l'image
             try {
                 $client = new Client([
-                    'base_uri' => 'https://pcs-all.online:8000'
+                    'base_uri' => 'localhost:8000'
                 ]);
                 $response = $client->get('/performanceAdsImages/' . $like['id_performance']);
                 $content['image'] = json_decode($response->getBody()->getContents(), true)['images'][0];

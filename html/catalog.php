@@ -21,7 +21,7 @@ if (isset($_GET['choice'])) {
                 $travelers = $_POST['travelers'];
                 //Requete API en POST pour récupérer le catalogue
                 $client = new Client([
-                    'base_uri' => 'https://pcs-all.online:8000'
+                    'base_uri' => 'localhost:8000'
                 ]);
                 $response = $client->post('/getHousingCatalogBySearch', [
                     'json' => [
@@ -35,14 +35,14 @@ if (isset($_GET['choice'])) {
                 unset($_POST);
             } else {
                 $client = new Client();
-                $response = $client->request('GET', 'https://pcs-all.online:8000/getAllCatalogByChoice/' . $choice);
+                $response = $client->request('GET', 'localhost:8000/getAllCatalogByChoice/' . $choice);
                 $tmp_content = json_decode($response->getBody(), true)['catalog'];
             }
             $content=[];
             foreach ($tmp_content as $key => $item) {
                 //Requete API pour récupérer les disponibilités
                 $client = new Client([
-                    'base_uri' => 'https://pcs-all.online:8000'
+                    'base_uri' => 'localhost:8000'
                 ]);
                 $response = $client->get('/housingDisponibility/' . $item['id']);
                 $disponibility = json_decode($response->getBody()->getContents(), true)['disponibility'];
@@ -50,7 +50,7 @@ if (isset($_GET['choice'])) {
                     //Ajouter la note moyenne
                     try{
                         $client=new Client();
-                        $response=$client->post('https://pcs-all.online:8000/getAverageRate',[
+                        $response=$client->post('localhost:8000/getAverageRate',[
                             'json'=>[
                                 'id'=>$item['id'],
                                 'type'=>'housing'
@@ -105,7 +105,7 @@ if (isset($_GET['choice'])) {
                 $date = $_POST['date'];
                 //Requete API en POST pour récupérer le catalogue
                 $client = new Client([
-                    'base_uri' => 'https://pcs-all.online:8000'
+                    'base_uri' => 'localhost:8000'
                 ]);
                 $response = $client->post('/getPerformanceCatalogBySearch', [
                     'json' => [
@@ -117,14 +117,14 @@ if (isset($_GET['choice'])) {
                 unset($_POST);
             } else {
                 $client = new Client();
-                $response = $client->request('GET', 'https://pcs-all.online:8000/getAllCatalogByChoice/' . $choice);
+                $response = $client->request('GET', 'localhost:8000/getAllCatalogByChoice/' . $choice);
                 $tmp_content = json_decode($response->getBody(), true)['catalog'];
             }
             $content=[];
             foreach ($tmp_content as $key => $item) {
                 //Requete API pour récupérer les disponibilités
                 $client = new Client([
-                    'base_uri' => 'https://pcs-all.online:8000'
+                    'base_uri' => 'localhost:8000'
                 ]);
                 $response = $client->get('/performanceDisponibility/' . $item['id']);
                 $disponibility = json_decode($response->getBody()->getContents(), true)['disponibility'];
@@ -132,7 +132,7 @@ if (isset($_GET['choice'])) {
                     //Ajouter la note moyenne
                     try{
                         $client=new Client();
-                        $response=$client->post('https://pcs-all.online:8000/getAverageRate',[
+                        $response=$client->post('localhost:8000/getAverageRate',[
                             'json'=>[
                                 'id'=>$item['id'],
                                 'type'=>'performance'
@@ -181,7 +181,7 @@ if (isset($_GET['choice'])) {
             //Requete API pour récupérer l'image
             try {
                 $client = new Client([
-                    'base_uri' => 'https://pcs-all.online:8000'
+                    'base_uri' => 'localhost:8000'
                 ]);
                 if ($choice == 'housing') {
                     $response = $client->get('/housingAdsImages/' . $item['id']);

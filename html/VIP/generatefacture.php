@@ -81,7 +81,7 @@ if ($plan == 1) {
 
 try {
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $response = $client->get('/usersbytoken/' . $userToken);
     $body = json_decode($response->getBody()->getContents(), true);

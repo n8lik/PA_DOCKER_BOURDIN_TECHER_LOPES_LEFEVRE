@@ -15,7 +15,7 @@ $grade = $_SESSION["grade"];
 $filename = $_GET['file'];
 try {
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $test = [
         'grade' => $grade,

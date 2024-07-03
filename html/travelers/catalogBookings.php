@@ -21,7 +21,7 @@ if ($_SESSION["grade"] > 3) {
 // On récupère les réservations de l'utilisateur
 try {
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $response = $client->get('/getBookingByTravelerId/' . $_SESSION["userId"]);
     $data = json_decode($response->getBody()->getContents(), true);
@@ -45,7 +45,7 @@ if (isset($_POST["rate"]) && isset($_POST["comment"]) && isset($_POST["id"])) {
     
     try {
         $client = new Client([
-            'base_uri' => 'https://pcs-all.online:8000'
+            'base_uri' => 'localhost:8000'
         ]);
         $param = [
             "rate" => $_POST["rate"],

@@ -16,12 +16,12 @@ if (!isConnected()){
 if (isset($_GET["id"])) {
     //Récupération du ticket
     $client = new Client();
-    $response = $client->get('https://pcs-all.online:8000/getTicketById/' . $_GET["id"]);
+    $response = $client->get('localhost:8000/getTicketById/' . $_GET["id"]);
     $ticket = json_decode($response->getBody()->getContents(), true)['ticket'];
 
     //Récupération des réponses
     try {
-        $response = $client->get('https://pcs-all.online:8000/getTicketAnswers/' . $_GET["id"]);
+        $response = $client->get('localhost:8000/getTicketAnswers/' . $_GET["id"]);
         $answers = json_decode($response->getBody()->getContents(), true)['answers'];
     } catch (Exception $e) {
         $answers = [];

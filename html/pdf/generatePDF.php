@@ -14,7 +14,7 @@ $userToken = $_GET["user"];
 
 try {
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $response = $client->get('/booking/' .$bookingId);
     $data = json_decode($response->getBody()->getContents(), true);
@@ -31,7 +31,7 @@ $housingId = $booking["housing_id"];
 }
 try {
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $response = $client->get('/housing/' .$housingId);
     $data = json_decode($response->getBody()->getContents(), true);
@@ -41,7 +41,7 @@ try {
 }
 try {
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $response = $client->get('/usersbytoken/' . $userToken);
     $body = json_decode($response->getBody()->getContents(), true);

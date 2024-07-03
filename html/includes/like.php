@@ -26,7 +26,7 @@ switch ($_POST['action']) {
 
         try{
             $client = new Client([
-                'base_uri' => 'https://pcs-all.online:8000'
+                'base_uri' => 'localhost:8000'
             ]);
             $like = [
                 'userId' => $userId,
@@ -57,7 +57,7 @@ switch ($_POST['action']) {
 
         try{
             $client = new Client([
-                'base_uri' => 'https://pcs-all.online:8000'
+                'base_uri' => 'localhost:8000'
             ]);
             $like = [
                 'userId' => $userId,

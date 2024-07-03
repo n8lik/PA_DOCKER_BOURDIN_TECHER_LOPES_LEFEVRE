@@ -17,7 +17,7 @@ $type = $_GET['type'];
 
 try {
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $test = [
         'userId' => $userId,

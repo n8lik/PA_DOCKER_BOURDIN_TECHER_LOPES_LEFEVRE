@@ -13,7 +13,7 @@ if (!isConnected()){
 }
 try {
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $response = $client->get('/getConversation/' . $_SESSION["userId"]);
     $conversation = json_decode($response->getBody()->getContents(), true);
@@ -33,21 +33,21 @@ foreach ($conversation['privateMessages'] as $message) {
         $type = 'performance';
     }   
     $client = new Client([
-        'base_uri' => 'https://pcs-all.online:8000'
+        'base_uri' => 'localhost:8000'
     ]);
     $response = $client->get($type == 'housing' ? '/getHousingAdsInfo/' . $id : '/getPerformanceAdsInfo/' . $id);
     $ad = json_decode($response->getBody()->getContents(), true)['adsInfo'];
     try {
         if ($_SESSION["userId"] == $message['to_user_id']){
-            $response = $client->get('https://pcs-all.online:8000/users/' . $message["from_user_id"]);
+            $response = $client->get('localhost:8000/users/' . $message["from_user_id"]);
             $user = json_decode($response->getBody(), true)['users'];
 
-            $response = $client->get('https://pcs-all.online:8000/getPpById/' . $message["from_user_id"]);
+            $response = $client->get('localhost:8000/getPpById/' . $message["from_user_id"]);
         } else {
-            $response = $client->get('https://pcs-all.online:8000/users/' . $message["to_user_id"]);
+            $response = $client->get('localhost:8000/users/' . $message["to_user_id"]);
             $user = json_decode($response->getBody(), true)['users'];
 
-            $response = $client->get('https://pcs-all.online:8000/getPpById/' . $message["to_user_id"]);
+            $response = $client->get('localhost:8000/getPpById/' . $message["to_user_id"]);
         }
         $userpdp = json_decode($response->getBody(), true)["users"];
         

@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
     }
 
 
-    $client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+    $client = new Client(['base_uri' => 'localhost:8000']);
 
 
     $multipart = [
@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
 
     try {
         // Envoyer la requête multipart
-        $response = $client->post('https://pcs-all.online:8000/updateUser', [
+        $response = $client->post('localhost:8000/updateUser', [
             'multipart' => $multipart
         ]);
 
@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
 if(isset($_POST["submit-password"])){ 
     try {
         $client = new Client([
-            'base_uri' => 'https://pcs-all.online:8000'
+            'base_uri' => 'localhost:8000'
         ]);
         $test = [
             

@@ -41,7 +41,7 @@ if ($event->type == 'checkout.session.completed') {
         file_put_contents('webhook_debug.txt', "Subscription ID: $subscription_id, User Token: $userToken\n", FILE_APPEND);
 
         try {
-            $client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+            $client = new Client(['base_uri' => 'localhost:8000']);
             $response = $client->post('/webhook', [
                 'json' => [
                     'userToken' => $userToken,

@@ -13,7 +13,7 @@ $idUser = $_SESSION['userId'];
 //Réception des informations de l'utilisateur
 try {
     $client = new Client();
-    $response = $client->get('https://pcs-all.online:8000/users/' . $idUser);
+    $response = $client->get('localhost:8000/users/' . $idUser);
     $user = json_decode($response->getBody(), true)['users'];
 } catch (Exception $e) {
     echo '<div class="alert alert-danger" role="alert" staticTotranslate="profile_error_retrieving_info">Erreur lors de la récupération des informations</div>';
@@ -22,7 +22,7 @@ try {
 //Récéption de la photo de profil
 try {
     $client = new Client();
-    $response = $client->get('https://pcs-all.online:8000/getPpById/' . $idUser);
+    $response = $client->get('localhost:8000/getPpById/' . $idUser);
     $userpdp = json_decode($response->getBody(), true)["users"];
 } catch (Exception $e) {
     echo '<div class="alert alert-danger" role="alert" staticTotranslate="profile_error_retrieving_photo">Erreur lors de la récupération de la photo de profil</div>';
@@ -201,7 +201,7 @@ try {
                         //Appel API pour récupérer les tickets
                         try {
                             $client = new Client();
-                            $response = $client->get('https://pcs-all.online:8000/getTicketsByUserId/' . $idUser);
+                            $response = $client->get('localhost:8000/getTicketsByUserId/' . $idUser);
                             $tickets = json_decode($response->getBody(), true)['tickets'];
                         } catch (Exception $e) {
                             echo '<div class="alert alert-danger" role="alert" staticTotranslate="profile_error_retrieving_tickets">Erreur lors de la récupération des tickets</div>';
@@ -227,7 +227,7 @@ try {
         $userToken = $_SESSION['token'];
         try {
         $client = new Client([
-            'base_uri' => 'https://pcs-all.online:8000'
+            'base_uri' => 'localhost:8000'
         ]);
         $response = $client->get('/usersbytoken/' . $userToken);
         $body = json_decode($response->getBody()->getContents(), true);

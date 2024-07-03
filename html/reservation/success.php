@@ -55,7 +55,7 @@ $title = $paymentIntent["title"];
 echo $id . " " . $type . " " . $price . " " . $start_date . " " . $end_date . " " . $amount_people . " " . $title . " " . $userId;
    
 try {
-    $client = new Client(['base_uri' => 'https://pcs-all.online:8000']);
+    $client = new Client(['base_uri' => 'localhost:8000']);
     if ($type == "performance") {
     $response = $client->post('/addBooking', [
         'json' => [

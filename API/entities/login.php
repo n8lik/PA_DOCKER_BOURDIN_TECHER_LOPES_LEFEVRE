@@ -1,6 +1,6 @@
 <?php
 //Si l'email  n'existe pas en base de données on renvoie une erreur
-function login(string $email, string $password, string $captcha)
+function login(string $email, string $password)
 {
     require_once __DIR__ . "/../database/connection.php";
 
