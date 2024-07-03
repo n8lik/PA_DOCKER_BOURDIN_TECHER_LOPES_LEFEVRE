@@ -4,5 +4,4 @@ WORKDIR /usr/src/myapp
 
 COPY ./API .
 
-
 CMD [ "php", "./index.php" ]
