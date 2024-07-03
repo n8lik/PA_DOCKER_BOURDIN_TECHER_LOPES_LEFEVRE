@@ -1,0 +1,28 @@
+/*pour la navbarre catégories*/
+.nav-pills .nav-link {
+    color: #BEA57D !important;
+    /* Couleur dorée */
+}
+/*hover*/
+.nav-pills .nav-link:hover {
+    color: #08152B !important;
+    /* Couleur bleu marine */
+}
+
+/* Couleur de fond et de texte pour les boutons actifs */
+.nav-pills .nav-link.active,
+.nav-pills .nav-link.show {
+    background-color: #34656D;
+    border-radius: 0.5em;
+    /* Fond bleu marine */
+}
+.ads-localisation {
+    color: #08152B;
+    font-size: x-large;
+}
+
+.ads-price {
+    color: #34656D;
+    font-size: larger;
+
+}

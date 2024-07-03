@@ -1,0 +1,12 @@
+:root {
+    --background-color: #f8f9fa;
+    --text-color: #000000;
+    --pcs-beige: #BEA57D;
+    --pcs-blue: #08152B;
+}
+
+[data-theme="dark"] {
+    --background-color: #08152B;
+    --text-color: #ffffff;
+    --pcs-beige: #BEA57D;
+}

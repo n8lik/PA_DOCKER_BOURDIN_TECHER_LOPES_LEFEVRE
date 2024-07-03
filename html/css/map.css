@@ -1,0 +1,10 @@
+#map {
+  height: 400px;
+  width: 100%;
+}
+.slider {
+    
+    top: 10px;   /* Ajustez ces valeurs selon vos besoins */
+    left: 10px;  /* Ajustez ces valeurs selon vos besoins */
+    z-index: 1000; /* Assurez-vous que le z-index est supérieur à celui de la carte */
+}

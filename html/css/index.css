@@ -1,0 +1,17 @@
+/*Css du carroussel*/
+.carousel-item{
+    height: 50vh;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+.carousel-item img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover; 
+    object-position: center; 
+}
+.carousel-caption { 
+    padding-bottom: 2em;
+}
+

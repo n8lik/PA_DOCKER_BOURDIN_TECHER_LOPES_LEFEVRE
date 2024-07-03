@@ -1,0 +1,16 @@
+
+        .table-custom th, .table-custom td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .check-icon {
+            color: green;
+            font-size: 1.5em;
+        }
+        .cross-icon {
+            color: red;
+            font-size: 1.5em;
+        }
+        .plan-title {
+            margin-bottom: 0;
+        }

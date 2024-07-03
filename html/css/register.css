@@ -1,0 +1,19 @@
+.button-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-button {
+    font-size: 1.2em;
+    padding: 1px 10px;
+    margin: 0 10px;
+    flex: 0 0 auto;
+    width: 150px;
+}
+
+.form-button:focus {
+    background-color: #4CAF50;
+    color: white;
+}

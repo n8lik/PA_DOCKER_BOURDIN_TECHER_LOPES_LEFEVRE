@@ -1,0 +1,88 @@
+/* CSS for Private Message Interface */
+
+/* Container for the entire panel */
+.panel {
+    padding: 10px;
+    width: 100%;
+    height: calc(100vh - 120px); /* Adjust height to fit within viewport */
+    box-sizing: border-box;
+}
+
+/* Panel header */
+.panel-heading {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border: none;
+}
+
+/* Panel body */
+.panel-body {
+    height: calc(100% - 110px); /* Adjust height for header and footer */
+    overflow-y: scroll;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: none;
+}
+
+/* Messages from the user */
+.alert-success {
+    background-color: #808080;
+    color: #000;
+    margin-bottom: 10px;
+    padding: 10px;
+    max-width: 60%;
+    display: inline-block;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    align-self: flex-start;
+    border-radius: 5px;
+}
+
+/* Messages from the other user */
+.alert-info {
+    background-color: #00aaff;
+    color: #000;
+    margin-bottom: 10px;
+    padding: 10px;
+    max-width: 60%;
+    display: inline-block;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    align-self: flex-end;
+    border-radius: 5px;
+}
+
+/* Panel footer */
+.panel-footer {
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Input group for sending message */
+.input-group {
+    width: 100%;
+    display: flex;
+}
+
+/* Input field for message */
+.input-group .form-control {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+}
+
+/* Send button */
+.input-group .input-group-btn .btn {
+    border-radius: 0 4px 4px 0;
+    margin-left: 5px;
+}

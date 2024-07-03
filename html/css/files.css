@@ -1,0 +1,20 @@
+
+.file-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center align items */
+    gap: 10px; /* Add gap between items */
+}
+.file-item {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    width: 100%; /* Full width by default */
+    max-width: 200px; /* Max width to ensure proper sizing */
+    box-sizing: border-box;
+}
+.file-name {
+    text-align: center;
+    margin-bottom: 10px;
+}

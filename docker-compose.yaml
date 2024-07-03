@@ -1,0 +1,63 @@
+services:
+
+  mysql:
+    build:
+      dockerfile_inline: |
+          FROM mariadb:10.6
+          RUN apt-get update \
+          && apt-get install --no-install-recommends -y tzdata git \
+          && rm -r /var/lib/apt/lists/* \
+          && apt-get clean
+    container_name: mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    environment:
+      MYSQL_DATABASE: pcs_all_bdd
+      MYSQL_USER: serveur
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+    secrets:
+      - mysql_root_password
+      - mysql_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - back
+
+  api:
+    container_name: api
+    build: 
+    
+    environement:
+      DB_NAME: pcs_all_bdd
+      DB_USER: serveur
+      DB_PASSWORD_FILE: /run/secrets/mysql_password
+    secrets:
+      - mysql_password
+    ports:
+      -"8000:8000"
+      
+secrets:
+  mysql_root_password:
+    file: ./secrets/mysql_root_password.secret
+  mysql_password:
+    file: ./secrets/mysql_password.secret
+
+volumes:
+  mysql:
+
+networks:
+  front:
+  back:
