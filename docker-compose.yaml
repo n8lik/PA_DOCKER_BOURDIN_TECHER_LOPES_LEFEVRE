@@ -17,7 +17,7 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-        delay: 5s
+        delay: 5s 
         max_attempts: 3
         window: 120s
     environment:
@@ -31,7 +31,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - back
@@ -39,16 +39,33 @@ services:
   api:
     container_name: api
     build: 
-    
-    environement:
+      context: https://github.com/n8lik/PA_DOCKER_BOURDIN_TECHER_LOPES_LEFEVRE.git
+      dockerfile: Dockerfile
+    environment:
       DB_NAME: pcs_all_bdd
       DB_USER: serveur
       DB_PASSWORD_FILE: /run/secrets/mysql_password
     secrets:
       - mysql_password
     ports:
-      -"8000:8000"
-      
+      - "8000:8000"
+    networks:
+      - front
+      - back
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  front:
+    container_name: front
+    image: nginx:latest
+    ports:
+      - "80:80"
+    networks:
+      - front
+    depends_on:
+      - api
+
 secrets:
   mysql_root_password:
     file: ./secrets/mysql_root_password.secret
@@ -56,7 +73,7 @@ secrets:
     file: ./secrets/mysql_password.secret
 
 volumes:
-  mysql:
+  mysql_data:
 
 networks:
   front:
