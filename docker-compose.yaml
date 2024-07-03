@@ -49,7 +49,7 @@ services:
     secrets:
       - mysql_password
     ports:
-      - "8000:8000"
+      - "8000:80"
     networks:
       - default
     restart: on-failure:5
