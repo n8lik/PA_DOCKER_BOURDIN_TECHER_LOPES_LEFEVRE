@@ -55,16 +55,29 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
+    hostname: pcs-all.online
+
+  srvmail:
+    depends_on:
+      - mysql
+    image: postfixadmin
+    ports:
+      - "25:25"
+    restart: always
+    # environment:
+    scale: 0
+      
 
   front:
     container_name: front
-    image: nginx:latest
+    image: front
     ports:
       - "80:80"
     networks:
       - default
     depends_on:
       - api
+    scale: 1
 
 secrets:
   mysql_root_password:

@@ -117,6 +117,7 @@ if (isPath("housingDisponibility/:id")) {
         die();
     }
 
+}
 if(isPath("housing/:id")){
     if(isGetMethod()){
         require_once __DIR__ . "/routes/ads/getHousingById.php";
@@ -243,7 +244,6 @@ if (isPath("getComments")) {
 }
 #############################Booking##############################
 
-}
 if (isPath("getBookingByDate")){
     if(isPostMethod()){
         require_once __DIR__ . "/routes/ads/booking/getBookingByDate.php";

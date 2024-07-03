@@ -1,7 +1,7 @@
 <?php
 $pageTitle = "Accueil";
 require 'includes/header.php';
-require 'includes/cookies.php';
+/* require 'includes/cookies.php'; */
 ?>
 <link rel="stylesheet" href="/css/index.css">
 

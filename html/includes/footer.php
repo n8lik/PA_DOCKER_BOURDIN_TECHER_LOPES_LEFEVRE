@@ -1,39 +1,5 @@
 
-<script>
-function changeLanguage(lang) {
-    if (getCookie('acceptCookies')) {
-        document.cookie = `language=${lang}; path=/; max-age=31536000`; // Store for 1 year
-    } else {
-        document.getElementById('langForm').submit();
-    }
-    applyTranslations(lang);
-}
-
-function applyTranslations(lang) {
-    fetch(`/includes/lang/${lang}.json`)
-        .then(response => response.json())
-        .then(translations => {
-            document.querySelectorAll('[staticToTranslate]').forEach(element => {
-                const key = element.getAttribute('staticToTranslate');
-                if (translations[key]) {
-                    element.textContent = translations[key];
-                }
-            });
-        });
-}
-
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const lang = getCookie('language') || 'fr';
-    changeLanguage(lang);
-});
-</script>
-
+<!--  -->
 </body>
 <footer class="footer">
     <div class="footer-content">

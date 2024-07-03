@@ -104,21 +104,7 @@
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<form method="POST" id="langForm" action="">
-					<select name="lang" id="lang" onchange="changeLanguage(this.value)">
-						<?php
-						$lang_dir = '/var/www/html/includes/lang';
-						$langs = array_diff(scandir($lang_dir), array('.', '..'));
-						foreach ($langs as $file) {
-							if (pathinfo($file, PATHINFO_EXTENSION) == 'json') {
-								$lang = pathinfo($file, PATHINFO_FILENAME);
-								$selected = (isset($_COOKIE['language']) && $_COOKIE['language'] == $lang) || (isset($_SESSION['language']) && $_SESSION['language'] == $lang) ? 'selected' : '';
-								echo "<option value='$lang' $selected>$lang</option>";
-							}
-						}
-						?>
-					</select>
-				</form>
+				
 				<?php if (isset($_SESSION['grade'])) { ?>
 					<span class="navbar-text">
 						<a href="/profile" class="btn btn-primary"><img src="/assets/img/login.png" height="20px"></a>
@@ -140,7 +126,7 @@
 	?>
 
 	<?php
-	if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['lang'])) {
+	/* if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['lang'])) {
 		$lang = $_POST['lang'];
 		if (isset($_COOKIE['acceptCookies']) && $_COOKIE['acceptCookies']) {
 			setcookie('language', $lang, time() + (365 * 24 * 60 * 60), '/'); // 1 year
@@ -153,4 +139,4 @@
 
 	$lang = isset($_COOKIE['language']) ? $_COOKIE['language'] : (isset($_SESSION['language']) ? $_SESSION['language'] : 'fr');
 	echo "<script>document.addEventListener('DOMContentLoaded', () => { changeLanguage('$lang'); });</script>";
-	?>
+	 */?>
