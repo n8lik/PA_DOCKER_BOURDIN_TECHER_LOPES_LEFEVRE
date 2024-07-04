@@ -10,4 +10,4 @@ define("DB_USER","serveur");
 define("DB_PWD","serveur");
 
 define("DB_PORT","3306");
-define("DB_HOST","127.0.0.1");
+define("DB_HOST","mysql");

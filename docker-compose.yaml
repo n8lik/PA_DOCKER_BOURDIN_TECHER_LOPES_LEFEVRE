@@ -31,8 +31,11 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      #- mysql_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    #networks:
+    #  projetDocker:
+    #    ipv4_address: 172.23.0.2
 
   api:
     container_name: api
@@ -52,17 +55,8 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-
-  # srvmail:
-  #   depends_on:
-  #     - mysql
-  #   image: postfixadmin
-  #   ports:
-  #     - "25:25"
-  #   restart: always
-  #   # environment:
-  #   scale: 0
-      
+    networks:
+      - projetDocker      
 
   front:
     container_name: front
@@ -72,6 +66,8 @@ services:
     depends_on:
       - api
     scale: 1
+    networks:
+      - projetDocker
 
 secrets:
   mysql_root_password:
@@ -81,3 +77,14 @@ secrets:
 
 volumes:
   mysql_data:
+
+networks:
+  projetDocker:
+    driver: bridge
+    ipam:
+     config:
+        - subnet: 172.28.0.0/16
+          ip_range: 172.28.5.0/24
+          gateway: 172.28.5.254
+          aux_addresses:
+            mysql: 172.28.0.2
