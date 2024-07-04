@@ -133,7 +133,7 @@ $html =
 </head>
 <body>
     <div class="container">
-        <img src="https://pcs-all.online/assets/logos/darkLogo.png" alt="PCS-ALL" style="width: 200px; display: block; margin: 0 auto;">
+        <img src="/assets/logos/darkLogo.png" alt="PCS-ALL" style="width: 200px; display: block; margin: 0 auto;">
         <h1>Facture de l\'abonnement '.$plan.'</h1>
         <p>Merci d\'avoir souscrit à notre plan <strong>'.$plan.'</strong>!</p>
         <div class="details">

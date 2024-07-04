@@ -3,11 +3,15 @@ services:
   mysql:
     build:
       dockerfile_inline: |
-          FROM mariadb:10.6
+          FROM mariadb:10.6 
           RUN apt-get update \
           && apt-get install --no-install-recommends -y tzdata git \
           && rm -r /var/lib/apt/lists/* \
-          && apt-get clean
+          && git clone https://github.com/n8lik/PA_DOCKER_BOURDIN_TECHER_LOPES_LEFEVRE.git /githubCode \
+          && mv /githubCode/init.sql /docker-entrypoint-initdb.d/init.sql \
+          && chmod -R 777 /docker-entrypoint-initdb.d \
+          && rm -rf /githubCode \
+          && apt-get remove -y git && apt-get clean
     container_name: mysql
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h localhost"]
@@ -31,7 +35,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      #- mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - projetDocker
@@ -59,7 +63,7 @@ services:
 
   front:
     container_name: front
-    image: front
+    image: n8lik/front:1.1
     ports:
       - "80:80"
     depends_on:
@@ -67,6 +71,12 @@ services:
     scale: 1
     networks:
       - projetDocker
+    environment:
+      DB_NAME: pcs_all_bdd
+      DB_USER: serveur
+      DB_PASSWORD_FILE: /run/secrets/mysql_password
+    secrets:
+      - mysql_password
 
 secrets:
   mysql_root_password:

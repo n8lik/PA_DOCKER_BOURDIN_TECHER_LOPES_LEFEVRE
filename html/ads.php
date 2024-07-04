@@ -282,7 +282,7 @@ try {
                         <form action="/reservation/booking" method="POST" class="d-flex w-100">
                             <input type="hidden" name="id" value="<?php echo $content['id']; ?>">
                             <input type="hidden" name="type" value="<?php echo $type; ?>">
-                            <a href="https://pcs-all.online/reservation/booking?id=<?php echo $content['id']; ?>&type=<?php echo $type; ?>" class="btn btn-primary w-50 me-1">Réserver</a>
+                            <a href="/reservation/booking?id=<?php echo $content['id']; ?>&type=<?php echo $type; ?>" class="btn btn-primary w-50 me-1">Réserver</a>
                             <a href="/privateMessage/addConversation?id=<?php echo $content['id']; ?>&type=<?php echo $type; ?>" class="btn btn-secondary w-50">Contacter le propriétaire</a>
                         </form>
                     </div>

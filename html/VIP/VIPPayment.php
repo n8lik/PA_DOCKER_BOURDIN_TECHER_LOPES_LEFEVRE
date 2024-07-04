@@ -81,8 +81,8 @@ if ($_POST['plan'] == 1) {
             
             'client_reference_id' => $userToken,
             'mode' => 'subscription',
-            'success_url' => 'https://pcs-all.online/VIP/success',
-            'cancel_url' => 'https://pcs-all.online/VIP/cancel',
+            'success_url' => 'http://localhost/VIP/success',
+            'cancel_url' => 'https://localhost/VIP/cancel',
         ]);
     
         header ("Location: " . $session->url);
@@ -123,8 +123,8 @@ if ($_POST['plan'] == 2) {
             
             'client_reference_id' => $userToken,
             'mode' => 'subscription',
-            'success_url' => 'https://pcs-all.online/VIP/success',
-            'cancel_url' => 'https://pcs-all.online/VIP/cancel',
+            'success_url' => 'https://localhost/VIP/success',
+            'cancel_url' => 'https://localhost/VIP/cancel',
         ]);
     
         header ("Location: " . $session->url);
@@ -166,8 +166,8 @@ if ($_POST['plan'] == 3) {
             
             'client_reference_id' => $userToken,
             'mode' => 'subscription',
-            'success_url' => 'https://pcs-all.online/VIP/success',
-            'cancel_url' => 'https://pcs-all.online/VIP/cancel',
+            'success_url' => 'https://localhost/VIP/success',
+            'cancel_url' => 'https://localhost/VIP/cancel',
         ]);
     
         header ("Location: " . $session->url);
@@ -208,8 +208,8 @@ if ($_POST['plan'] == 4) {
             
             'client_reference_id' => $userToken,
             'mode' => 'subscription',
-            'success_url' => 'https://pcs-all.online/VIP/success',
-            'cancel_url' => 'https://pcs-all.online/VIP/cancel',
+            'success_url' => 'https://localhost/VIP/success',
+            'cancel_url' => 'https://localhost/VIP/cancel',
         ]);
     
         header ("Location: " . $session->url);
