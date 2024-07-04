@@ -7,7 +7,7 @@ $grade = $_GET["grade"];
 $filename = $_GET['file'];
 try {
     $client = new Client([
-        'base_uri' => 'localhost:8000'
+        'base_uri' => 'http://api'
     ]);
     $test = [
         'grade' => $grade,

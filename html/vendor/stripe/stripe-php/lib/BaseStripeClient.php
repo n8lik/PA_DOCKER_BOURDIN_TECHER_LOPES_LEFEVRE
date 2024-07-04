@@ -15,12 +15,12 @@ class BaseStripeClient implements StripeClientInterface, StripeStreamingClientIn
 
     /** @var array<string, null|string> */
     const DEFAULT_CONFIG = [
-        'api_key' => null,
+        'http://api_key' => null,
         'app_info' => null,
         'client_id' => null,
         'stripe_account' => null,
         'stripe_version' => \Stripe\Util\ApiVersion::CURRENT,
-        'api_base' => self::DEFAULT_API_BASE,
+        'http://api_base' => self::DEFAULT_API_BASE,
         'connect_base' => self::DEFAULT_CONNECT_BASE,
         'files_base' => self::DEFAULT_FILES_BASE,
     ];
@@ -64,7 +64,7 @@ class BaseStripeClient implements StripeClientInterface, StripeStreamingClientIn
     public function __construct($config = [])
     {
         if (\is_string($config)) {
-            $config = ['api_key' => $config];
+            $config = ['http://api_key' => $config];
         } elseif (!\is_array($config)) {
             throw new \Stripe\Exception\InvalidArgumentException('$config must be a string or an array');
         }
@@ -87,7 +87,7 @@ class BaseStripeClient implements StripeClientInterface, StripeStreamingClientIn
      */
     public function getApiKey()
     {
-        return $this->config['api_key'];
+        return $this->config['http://api_key'];
     }
 
     /**
@@ -107,7 +107,7 @@ class BaseStripeClient implements StripeClientInterface, StripeStreamingClientIn
      */
     public function getApiBase()
     {
-        return $this->config['api_base'];
+        return $this->config['http://api_base'];
     }
 
     /**
@@ -260,18 +260,18 @@ class BaseStripeClient implements StripeClientInterface, StripeStreamingClientIn
     private function validateConfig($config)
     {
         // api_key
-        if (null !== $config['api_key'] && !\is_string($config['api_key'])) {
-            throw new \Stripe\Exception\InvalidArgumentException('api_key must be null or a string');
+        if (null !== $config['http://api_key'] && !\is_string($config['http://api_key'])) {
+            throw new \Stripe\Exception\InvalidArgumentException('http://api_key must be null or a string');
         }
 
-        if (null !== $config['api_key'] && ('' === $config['api_key'])) {
-            $msg = 'api_key cannot be the empty string';
+        if (null !== $config['http://api_key'] && ('' === $config['http://api_key'])) {
+            $msg = 'http://api_key cannot be the empty string';
 
             throw new \Stripe\Exception\InvalidArgumentException($msg);
         }
 
-        if (null !== $config['api_key'] && (\preg_match('/\s/', $config['api_key']))) {
-            $msg = 'api_key cannot contain whitespace';
+        if (null !== $config['http://api_key'] && (\preg_match('/\s/', $config['http://api_key']))) {
+            $msg = 'http://api_key cannot contain whitespace';
 
             throw new \Stripe\Exception\InvalidArgumentException($msg);
         }
@@ -292,8 +292,8 @@ class BaseStripeClient implements StripeClientInterface, StripeStreamingClientIn
         }
 
         // api_base
-        if (!\is_string($config['api_base'])) {
-            throw new \Stripe\Exception\InvalidArgumentException('api_base must be a string');
+        if (!\is_string($config['http://api_base'])) {
+            throw new \Stripe\Exception\InvalidArgumentException('http://api_base must be a string');
         }
 
         // connect_base

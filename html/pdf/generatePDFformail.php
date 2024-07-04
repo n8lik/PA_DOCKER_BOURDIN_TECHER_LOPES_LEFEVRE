@@ -20,7 +20,7 @@ $type = $_GET["type"];
 
 try {
     $client = new Client([
-        'base_uri' => 'localhost:8000'
+        'base_uri' => 'http://api'
     ]);
     $response = $client->get('/booking/' .$bookingId);
     $data = json_decode($response->getBody()->getContents(), true);
@@ -34,7 +34,7 @@ $housingId = $booking["housing_id"];
 
 try {
     $client = new Client([
-        'base_uri' => 'localhost:8000'
+        'base_uri' => 'http://api'
     ]);
     $response = $client->get('/housing/' .$housingId);
     $data = json_decode($response->getBody()->getContents(), true);
@@ -47,7 +47,7 @@ else{
     $housingId = $booking["performance_id"];
     try {
         $client = new Client([
-            'base_uri' => 'localhost:8000'
+            'base_uri' => 'http://api'
         ]);
         $response = $client->get('/getPerformanceAdsInfo/' .$housingId);
         $data = json_decode($response->getBody()->getContents(), true);
@@ -58,7 +58,7 @@ else{
 }
 try {
     $client = new Client([
-        'base_uri' => 'localhost:8000'
+        'base_uri' => 'http://api'
     ]);
     $response = $client->get('/usersbytoken/' . $userToken);
     $body = json_decode($response->getBody()->getContents(), true);

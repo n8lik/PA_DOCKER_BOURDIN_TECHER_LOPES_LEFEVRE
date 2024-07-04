@@ -43,9 +43,9 @@ class RequestOptions
     public function __debugInfo()
     {
         return [
-            'apiKey' => $this->redactedApiKey(),
+            'http://apiKey' => $this->redactedApiKey(),
             'headers' => $this->headers,
-            'apiBase' => $this->apiBase,
+            'http://apiBase' => $this->apiBase,
         ];
     }
 
@@ -107,7 +107,7 @@ class RequestOptions
         if (\is_string($options)) {
             if ($strict) {
                 $message = 'Do not pass a string for request options. If you want to set the '
-                    . 'API key, pass an array like ["api_key" => <apiKey>] instead.';
+                    . 'http://api key, pass an array like ["api_key" => <apiKey>] instead.';
 
                 throw new \Stripe\Exception\InvalidArgumentException($message);
             }
@@ -120,9 +120,9 @@ class RequestOptions
             $key = null;
             $base = null;
 
-            if (\array_key_exists('api_key', $options)) {
-                $key = $options['api_key'];
-                unset($options['api_key']);
+            if (\array_key_exists('http://api_key', $options)) {
+                $key = $options['http://api_key'];
+                unset($options['http://api_key']);
             }
             if (\array_key_exists('idempotency_key', $options)) {
                 $headers['Idempotency-Key'] = $options['idempotency_key'];
@@ -136,9 +136,9 @@ class RequestOptions
                 $headers['Stripe-Version'] = $options['stripe_version'];
                 unset($options['stripe_version']);
             }
-            if (\array_key_exists('api_base', $options)) {
-                $base = $options['api_base'];
-                unset($options['api_base']);
+            if (\array_key_exists('http://api_base', $options)) {
+                $base = $options['http://api_base'];
+                unset($options['http://api_base']);
             }
 
             if ($strict && !empty($options)) {

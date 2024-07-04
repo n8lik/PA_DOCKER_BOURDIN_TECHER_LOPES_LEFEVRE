@@ -32,7 +32,7 @@ if (isset($_POST['message'])) {
     }
     try {
         $client = new Client([
-            'base_uri' => 'localhost:8000'
+            'base_uri' => 'http://api'
         ]);
         $response = $client->get('/getChatbotAnswer/' . $message);
         $chatbotResponse = json_decode($response->getBody()->getContents(), true);
@@ -63,7 +63,7 @@ if (isset($_GET['type'])) {
                 $idUser = $_SESSION['userId'];
                 try {
                     $client = new Client();
-                    $response = $client->get('localhost:8000/users/' . $idUser);
+                    $response = $client->get('http://api/users/' . $idUser);
                     $user = json_decode($response->getBody(), true)['users'];
                 } catch (Exception $e) {
                     echo '<div class="alert alert-danger" role="alert" staticTotranslate="support_error_retrieval">Erreur lors de la récupération des informations</div>';

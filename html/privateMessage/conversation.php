@@ -15,7 +15,7 @@ $id = $_GET['id'];
 use GuzzleHttp\Client;
 
 $client = new Client();
-$response = $client->get('localhost:8000/private-message/' . $id);
+$response = $client->get('http://api/private-message/' . $id);
 $conversation = json_decode($response->getBody()->getContents(), true)['privateMessage'];
 
 
@@ -26,7 +26,7 @@ if (isset($_POST["submit"])) {
 
     try {
         $client = new Client([
-            'base_uri' => 'localhost:8000'
+            'base_uri' => 'http://api'
         ]);
         $test = [
             'content' => $message,

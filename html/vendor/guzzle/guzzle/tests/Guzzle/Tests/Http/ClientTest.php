@@ -66,17 +66,17 @@ class ClientTest extends \Guzzle\Tests\GuzzleTestCase
     {
         $client = new Client('http://www.google.com/');
         $client->setConfig(new Collection(array(
-            'api' => 'v1',
+            'http://api' => 'v1',
             'key' => 'value',
             'base_url' => 'http://www.google.com/'
         )));
-        $this->assertEquals('v1', $client->getConfig('api'));
+        $this->assertEquals('v1', $client->getConfig('http://api'));
     }
 
     public function testExpandsUriTemplatesUsingConfig()
     {
         $client = new Client('http://www.google.com/');
-        $client->setConfig(array('api' => 'v1', 'key' => 'value', 'foo' => 'bar'));
+        $client->setConfig(array('http://api' => 'v1', 'key' => 'value', 'foo' => 'bar'));
         $ref = new \ReflectionMethod($client, 'expandTemplate');
         $ref->setAccessible(true);
         $this->assertEquals('Testing...api/v1/key/value', $ref->invoke($client, 'Testing...api/{api}/key/{key}'));
@@ -111,7 +111,7 @@ class ClientTest extends \Guzzle\Tests\GuzzleTestCase
     public function testClientAddsCurlOptionsToRequests()
     {
         $client = new Client('http://www.test.com/', array(
-            'api' => 'v1',
+            'http://api' => 'v1',
             // Adds the option using the curl values
             'curl.options' => array(
                 'CURLOPT_HTTPAUTH'     => 'CURLAUTH_DIGEST',
@@ -162,7 +162,7 @@ class ClientTest extends \Guzzle\Tests\GuzzleTestCase
     {
         // be really unsafe if you insist
         $client = new Client('https://www.secure.com/', array(
-            'api' => 'v1'
+            'http://api' => 'v1'
         ));
 
         $client->setSslVerification(false);
@@ -185,7 +185,7 @@ class ClientTest extends \Guzzle\Tests\GuzzleTestCase
     {
         // set a file other than the provided cacert.pem
         $client = new Client('https://www.secure.com/', array(
-            'api' => 'v1'
+            'http://api' => 'v1'
         ));
 
         $client->setSslVerification(__FILE__);
@@ -201,7 +201,7 @@ class ClientTest extends \Guzzle\Tests\GuzzleTestCase
     {
         // set a file other than the provided cacert.pem
         $client = new Client('https://www.secure.com/', array(
-            'api' => 'v1'
+            'http://api' => 'v1'
         ));
         $client->setSslVerification(__FILE__, true, true);
     }
@@ -213,7 +213,7 @@ class ClientTest extends \Guzzle\Tests\GuzzleTestCase
     {
         // set a file other than the provided cacert.pem
         $client = new Client('https://www.secure.com/', array(
-            'api' => 'v1'
+            'http://api' => 'v1'
         ));
         $client->setSslVerification(__FILE__, 'yes');
     }
@@ -222,7 +222,7 @@ class ClientTest extends \Guzzle\Tests\GuzzleTestCase
     {
         Version::$emitWarnings = false;
         $client = new Client('http://www.example.com', array(
-            'api' => 'v1',
+            'http://api' => 'v1',
             'request.params' => array(
                 'foo' => 'bar',
                 'baz' => 'jar'

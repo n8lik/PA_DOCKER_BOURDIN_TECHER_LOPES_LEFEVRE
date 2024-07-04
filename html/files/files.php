@@ -14,7 +14,7 @@ $token = $_SESSION["token"];
 $grade = $_SESSION["grade"];
 try {
     $client = new Client([
-        'base_uri' => 'localhost:8000'
+        'base_uri' => 'http://api'
     ]);
     $test = [
         'token' => $token,

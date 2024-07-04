@@ -35,7 +35,7 @@ if ($getType == "delete") {
     
     $id = $_GET["id"];
     $client = new Client([
-        'base_uri' => 'localhost:8000/',
+        'base_uri' => 'http://api/',
         'timeout'  => 2.0,
     ]);
     $response = $client->delete('deleteHouse/'. $id);
@@ -184,7 +184,7 @@ if ($getType == "add") {
             $errorMessage .= '<div class="alert alert-danger" role="alert">Désolé, votre fichier est trop volumineux.</div>';
         }
         if ($errorMessage === '') {
-            $client = new Client(['base_uri' => 'localhost:8000']);
+            $client = new Client(['base_uri' => 'http://api']);
 
             // Préparer les parties multipart pour les champs du formulaire
             $multipart = [
@@ -223,7 +223,7 @@ if ($getType == "add") {
 
             try {
                 // Envoyer la requête multipart
-                $response = $client->post('localhost:8000/addAHouse', [
+                $response = $client->post('http://api/addAHouse', [
                     'multipart' => $multipart
                 ]);
 
@@ -311,7 +311,7 @@ if ($getType == "addFiles") {
     $filetype= $_POST['type'];
 
     if (isset($_POST['submit'])) {
-            $client = new Client(['base_uri' => 'localhost:8000']);
+            $client = new Client(['base_uri' => 'http://api']);
 
             // Préparer les parties multipart pour les champs du formulaire
             $multipart = [
@@ -329,7 +329,7 @@ if ($getType == "addFiles") {
 
             try {
                 // Envoyer la requête multipart
-                $response = $client->post('localhost:8000/addAFile', [
+                $response = $client->post('http://api/addAFile', [
                     'multipart' => $multipart
                 ]);
         

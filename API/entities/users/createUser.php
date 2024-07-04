@@ -26,8 +26,5 @@ function createUser(string $pseudo, string $firstname, string $lastname, string 
         'postal_code' => $postal_code,
         'grade' => $grade
     ]);
-    echo "Point de contrôle 2";
-
-    $databaseConnection = null;
-
+     
 }

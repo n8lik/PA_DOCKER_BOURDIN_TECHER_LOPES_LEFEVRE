@@ -24,7 +24,7 @@ if (!isset($_GET["id"]) || !isset($_GET["type"])) {
 $id = $_GET["id"];
 $type = $_GET["type"];
 
-$client = new Client(['base_uri' => 'localhost:8000']);
+$client = new Client(['base_uri' => 'http://api']);
 $response = $client->get($type == 'housing' ? '/housingDisponibility/' . $id : '/performanceDisponibility/' . $id);
 $disponibility = json_decode($response->getBody()->getContents(), true)['disponibility'];
 

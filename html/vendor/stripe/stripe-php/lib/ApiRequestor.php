@@ -36,7 +36,7 @@ class ApiRequestor
      */
     private static $requestTelemetry;
 
-    private static $OPTIONS_KEYS = ['api_key', 'idempotency_key', 'stripe_account', 'stripe_version', 'api_base'];
+    private static $OPTIONS_KEYS = ['http://api_key', 'idempotency_key', 'stripe_account', 'stripe_version', 'http://api_base'];
 
     /**
      * ApiRequestor constructor.

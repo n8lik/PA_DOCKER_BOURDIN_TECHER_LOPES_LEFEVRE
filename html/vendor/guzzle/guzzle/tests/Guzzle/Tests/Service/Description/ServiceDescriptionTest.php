@@ -129,7 +129,7 @@ class ServiceDescriptionTest extends \Guzzle\Tests\GuzzleTestCase
             'operations'  => array(),
             'name'        => 'Name',
             'description' => 'Description',
-            'apiVersion'  => '1.24'
+            'http://apiVersion'  => '1.24'
         ));
 
         $this->assertEquals('Name', $d->getName());
@@ -153,7 +153,7 @@ class ServiceDescriptionTest extends \Guzzle\Tests\GuzzleTestCase
             'operations'  => array('foo' => array('class' => 'foo', 'parameters' => array())),
             'name'        => 'Name',
             'description' => 'Test',
-            'apiVersion'  => '1.24',
+            'http://apiVersion'  => '1.24',
             'auth'        => 'foo',
             'keyParam'    => 'bar'
         );

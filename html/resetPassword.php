@@ -13,7 +13,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 $client = new Client([
-    'base_uri' => 'localhost:8000'
+    'base_uri' => 'http://api'
 ]);
 $data=[
     'email' => $_GET['email'],
@@ -45,7 +45,7 @@ if ($body['success']) {
             $_SESSION['ERRORS']['password'] = "Le mot de passe doit contenir au moins un chiffre";
         } else {
             $client = new Client([
-                'base_uri' => 'localhost:8000'
+                'base_uri' => 'http://api'
             ]);
             $data=[
                 'email' => $_GET['email'],

@@ -53,7 +53,7 @@ class ErrorObject extends StripeObject
     const CODE_ALIPAY_UPGRADE_REQUIRED = 'alipay_upgrade_required';
     const CODE_AMOUNT_TOO_LARGE = 'amount_too_large';
     const CODE_AMOUNT_TOO_SMALL = 'amount_too_small';
-    const CODE_API_KEY_EXPIRED = 'api_key_expired';
+    const CODE_API_KEY_EXPIRED = 'http://api_key_expired';
     const CODE_APPLICATION_FEES_NOT_ALLOWED = 'application_fees_not_allowed';
     const CODE_AUTHENTICATION_REQUIRED = 'authentication_required';
     const CODE_BALANCE_INSUFFICIENT = 'balance_insufficient';

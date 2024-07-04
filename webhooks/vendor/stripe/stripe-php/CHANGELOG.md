@@ -351,7 +351,7 @@ To successfully upgrade to stripe-php v12, you must either
        // if using StripeClient
      - $stripe = new \Stripe\StripeClient('sk_test_xyz');
      + $stripe = new \Stripe\StripeClient([
-     +   'api_key' => 'sk_test_xyz',
+     +   'http://api_key' => 'sk_test_xyz',
          'stripe_version' => '2020-08-27',
      + ]);
 

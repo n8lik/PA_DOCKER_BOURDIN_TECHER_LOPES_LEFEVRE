@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
     }
 
 
-    $client = new Client(['base_uri' => 'localhost:8000']);
+    $client = new Client(['base_uri' => 'http://api']);
 
 
     $multipart = [
@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
 
     try {
         // Envoyer la requête multipart
-        $response = $client->post('localhost:8000/updateUser', [
+        $response = $client->post('http://api/updateUser', [
             'multipart' => $multipart
         ]);
 
@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
 if(isset($_POST["submit-password"])){ 
     try {
         $client = new Client([
-            'base_uri' => 'localhost:8000'
+            'base_uri' => 'http://api'
         ]);
         $test = [
             

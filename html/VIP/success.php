@@ -28,7 +28,7 @@ if ($plan == 2 || $plan == 4){
 
 
 try {
-    $client = new Client(['base_uri' => 'localhost:8000']);
+    $client = new Client(['base_uri' => 'http://api']);
     $response = $client->post('/VIPUser', [
         'json' => [
             'vip_status' => $plan,

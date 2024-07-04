@@ -15,7 +15,7 @@ class ServiceDescriptionLoaderTest extends \Guzzle\Tests\GuzzleTestCase
         $d = ServiceDescription::factory(array(
             'foo' => true,
             'baz' => array('bar'),
-            'apiVersion' => '123',
+            'http://apiVersion' => '123',
             'operations' => array()
         ));
 
@@ -126,7 +126,7 @@ class ServiceDescriptionLoaderTest extends \Guzzle\Tests\GuzzleTestCase
         $description = ServiceDescription::factory(array(
             'operations'  => array(),
             'description' => 'Foo',
-            'apiVersion'  => 'bar'
+            'http://apiVersion'  => 'bar'
         ));
         $this->assertEquals('Foo', $description->getDescription());
         $this->assertEquals('bar', $description->getApiVersion());

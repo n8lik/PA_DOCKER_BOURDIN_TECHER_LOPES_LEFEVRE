@@ -12,7 +12,7 @@ if (!$id_user) {
 //Récupérer les infos user
 try {
     $client = new Client([
-        'base_uri' => 'localhost:8000'
+        'base_uri' => 'http://api'
     ]);
     $response = $client->get('/users/' . $id_user);
     $body = json_decode($response->getBody()->getContents(), true);

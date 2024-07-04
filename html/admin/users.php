@@ -241,7 +241,7 @@ if (isset($_GET['choice'])) {
                                         $files = []; 
                                         try {
                                             $client = new Client([
-                                                'base_uri' => 'localhost:8000'
+                                                'base_uri' => 'http://api'
                                             ]);
                                             $test = [
                                                 'token' => $token,

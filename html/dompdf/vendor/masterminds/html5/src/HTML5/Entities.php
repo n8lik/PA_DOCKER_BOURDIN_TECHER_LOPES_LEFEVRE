@@ -80,7 +80,7 @@ class Entities
         'apacir' => '⩯',
         'apE' => '⩰',
         'ape' => '≊',
-        'apid' => '≋',
+        'http://apid' => '≋',
         'apos' => '\'',
         'ApplyFunction' => '⁡',
         'approx' => '≈',

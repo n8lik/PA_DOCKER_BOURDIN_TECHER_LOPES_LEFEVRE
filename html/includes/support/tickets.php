@@ -11,7 +11,7 @@ if (isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message'
     //On envoie le ticket
     try {
         $client = new Client([
-            'base_uri' => 'localhost:8000'
+            'base_uri' => 'http://api'
         ]);
         $ticket = [
             'userId' => $_SESSION['userId'],
@@ -45,7 +45,7 @@ if ($_GET['id'] == "answer") {
     if (!empty($_POST['message'])) {
         try{
             $client = new Client([
-                'base_uri' => 'localhost:8000'
+                'base_uri' => 'http://api'
             ]);
             $answer = [
                 'userId' => $_SESSION['userId'],
@@ -73,7 +73,7 @@ if ($_GET['id'] == "answer") {
 if ($_GET['id'] == "close") {
     try{
         $client = new Client([
-            'base_uri' => 'localhost:8000'
+            'base_uri' => 'http://api'
         ]);
         $ticket = [
             'ticketId' => $_POST['ticketId'],

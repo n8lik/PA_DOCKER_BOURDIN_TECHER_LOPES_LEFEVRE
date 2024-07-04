@@ -101,7 +101,7 @@ phpunit.xml.dist file and extract these parameters in your bootstrap.php file.
     </phpunit>
 
 You can then extract the ``server`` variables in your bootstrap.php file by grabbing them from the ``$_SERVER``
-superglobal: ``$apiUser = $_SERVER['API_USER'];``
+superglobal: ``$apiUser = $_SERVER['http://api_USER'];``
 
 Further reading
 ^^^^^^^^^^^^^^^

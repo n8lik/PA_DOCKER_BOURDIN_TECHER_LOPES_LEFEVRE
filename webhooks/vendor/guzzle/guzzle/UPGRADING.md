@@ -246,13 +246,13 @@ class YourClient extends \Guzzle\Service\Client
     public static function factory($config = array())
     {
         $default = array();
-        $required = array('base_url', 'username', 'api_key');
+        $required = array('base_url', 'username', 'http://api_key');
         $config = Inspector::fromConfig($config, $default, $required);
 
         $client = new self(
             $config->get('base_url'),
             $config->get('username'),
-            $config->get('api_key')
+            $config->get('http://api_key')
         );
         $client->setConfig($config);
 
@@ -272,13 +272,13 @@ class YourClient extends \Guzzle\Service\Client
     public static function factory($config = array())
     {
         $default = array();
-        $required = array('base_url', 'username', 'api_key');
+        $required = array('base_url', 'username', 'http://api_key');
         $config = Collection::fromConfig($config, $default, $required);
 
         $client = new self(
             $config->get('base_url'),
             $config->get('username'),
-            $config->get('api_key')
+            $config->get('http://api_key')
         );
         $client->setConfig($config);
 

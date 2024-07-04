@@ -18,7 +18,7 @@ if (!isConnected()){
 }
 //####################Modification en bdd################
 $client = new Client([
-    'base_uri' => 'localhost:8000/',
+    'base_uri' => 'http://api/',
     'timeout'  => 2.0,
 ]);
 $response = $client->delete('deleteUserById/'.$_SESSION['userId']);
@@ -27,7 +27,7 @@ $response = $client->delete('deleteUserById/'.$_SESSION['userId']);
 //###################Envoyer un mail pour confirmer la suppression ###############
 //Récupérer le mail
 $client=new Client([
-    'base_uri'=>'localhost:8000/'
+    'base_uri'=>'http://api/'
 ]);
 
 $response=$client->get('users/'.$_SESSION['userId']);
