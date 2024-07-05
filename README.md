@@ -6,7 +6,7 @@ A noter qu'il y a une branche dockercomposeonly avec uniquement le nécessaire p
 Pour lancer les conteneurs docker :
 
 
-Avoir Docker composer installé sur sa machine
+Avoir Docker composer installé sur sa machine (!!!!!!!VERSION DE DOCKER COMPOSE IMPORTANTE IL FAUT LA NOUVELLE !!!!!!!!!) :  https://docs.docker.com/engine/install/debian/ 
 
 Avoir git
 
