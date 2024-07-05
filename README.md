@@ -1,19 +1,17 @@
 Branche dockercomposeonly comportant uniquement le docker-compose ainsi que le dossier secret permettant de lancer les conteneurs.
 
-A noter qu'il y a la branche main comportant tout le code source ainsi que les Dockerfile.
+A noter qu'il y a la branche main comportant tout le code source ainsi que les Dockerfile. 
 
-Pour lancer les conteneurs docker :
+Pour lancer les conteneurs docker : 
 
-Avoir Docker composer installé sur sa machine
+Avoir Docker composer installé sur sa machine (!!!!!!!VERSION DE DOCKER COMPOSE IMPORTANTE IL FAUT LA NOUVELLE !!!!!!!!!) :  https://docs.docker.com/engine/install/debian/ 
 
 Avoir git 
 
 
 
-git remote add origin https://github.com/n8lik/PA_DOCKER_BOURDIN_TECHER_LOPES_LEFEVRE
+git https://github.com/n8lik/PA_DOCKER_BOURDIN_TECHER_LOPES_LEFEVRE --branch dockercomposeonly mondossier
 
-git fetch origin dockercomposeonly
+cd mondossier
 
-git switch dockercomposeonly
-
-docker-compose up -d
+docker compose up -d
