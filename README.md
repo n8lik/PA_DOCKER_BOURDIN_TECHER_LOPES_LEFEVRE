@@ -15,4 +15,4 @@ git clone https://github.com/n8lik/PA_DOCKER_BOURDIN_TECHER_LOPES_LEFEVRE.git vo
 
 cd votrechemin
 
-docker-compose up -d
+docker compose up -d
