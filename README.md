@@ -10,7 +10,7 @@ Avoir git
 
 
 
-git https://github.com/n8lik/PA_DOCKER_BOURDIN_TECHER_LOPES_LEFEVRE --branch dockercomposeonly mondossier
+git clone https://github.com/n8lik/PA_DOCKER_BOURDIN_TECHER_LOPES_LEFEVRE --branch dockercomposeonly mondossier
 
 cd mondossier
 
